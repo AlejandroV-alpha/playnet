@@ -1,54 +1,57 @@
-// Crear una lista de usuarios registrados
-const listaUsuarios = [
-    new Usuario("Juan Pérez", "juan@example.com", "1234"),
-    new Usuario("Ana López", "ana@example.com", "abcd"),
-    new Usuario("Carlos Gómez", "carlos@example.com", "5678"),
-    new Usuario("María Torres", "maria@example.com", "efgh")
-];
+// Función para cargar los jugadores desde el archivo JSON
+function cargarJugadores() {
+    fetch('usuarios.json')  // Asegúrate de que el archivo usuarios.json esté en el mismo directorio que este archivo
+        .then(response => response.json())  // Convierte la respuesta a JSON
+        .then(usuarios => {
+            const comboJugador1 = document.getElementById('jugador1');
+            const comboJugador2 = document.getElementById('jugador2');
 
-// Función para llenar los combobox dinámicamente
-function cargarUsuariosEnSelect(selectId) {
-    const selectElement = document.getElementById(selectId);
-    listaUsuarios.forEach(usuario => {
-        const option = document.createElement("option");
-        option.value = usuario.nombre;
-        option.textContent = usuario.nombre;
-        selectElement.appendChild(option);
-    });
+            // Iteramos sobre el array de usuarios y añadimos cada uno como opción en los select
+            usuarios.forEach(usuario => {
+                // Para Jugador 1
+                const opcion1 = document.createElement('option');
+                opcion1.value = JSON.stringify(usuario); // Guardamos el objeto completo
+                opcion1.textContent = usuario.nombre;
+                comboJugador1.appendChild(opcion1);
+
+                // Para Jugador 2
+                const opcion2 = document.createElement('option');
+                opcion2.value = JSON.stringify(usuario); // Guardamos el objeto completo
+                opcion2.textContent = usuario.nombre;
+                comboJugador2.appendChild(opcion2);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar el archivo JSON:', error);
+        });
 }
 
-// Llenar ambos combobox al cargar la página
-window.onload = function() {
-    cargarUsuariosEnSelect("player1");
-    cargarUsuariosEnSelect("player2");
-};
+// Función para guardar los objetos completos en localStorage
+function guardarSeleccion() {
+    const jugador1 = document.getElementById('jugador1').value;
+    const jugador2 = document.getElementById('jugador2').value;
 
-// Manejar la confirmación de jugadores
-// Manejar la confirmación de jugadores
-document.getElementById("confirm-button").addEventListener("click", () => {
-    const player1Name = document.getElementById("player1").value;
-    const player2Name = document.getElementById("player2").value;
-
-    if (player1Name === player2Name) {
-        alert("¡Los jugadores no pueden ser el mismo usuario! Por favor selecciona jugadores diferentes.");
+    if (!jugador1 || !jugador2) {
+        alert("Por favor, seleccione ambos jugadores.");
         return;
     }
 
-    // Buscar los usuarios seleccionados en la lista
-    const player1 = listaUsuarios.find(usuario => usuario.nombre === player1Name);
-    const player2 = listaUsuarios.find(usuario => usuario.nombre === player2Name);
+    // Convertir las cadenas de objetos JSON de nuevo a objetos
+    const jugador1Obj = JSON.parse(jugador1);
+    const jugador2Obj = JSON.parse(jugador2);
 
-    // Guardar los usuarios seleccionados en localStorage
-    localStorage.setItem("player1", JSON.stringify(player1));
-    localStorage.setItem("player2", JSON.stringify(player2));
+    // Guardar los objetos completos en localStorage
+    localStorage.setItem('jugador1', JSON.stringify(jugador1Obj));
+    localStorage.setItem('jugador2', JSON.stringify(jugador2Obj));
 
-    // Mostrar en la página
-    const outputDiv = document.getElementById("output");
-    const outputMessage = document.getElementById("output-message");
-    outputMessage.textContent = `Jugador 1: ${player1.nombre}, Jugador 2: ${player2.nombre}`;
-    outputDiv.classList.remove("d-none");
+    alert("Selección guardada en localStorage.");
+}
 
-    // Redirigir al juego
-    window.location.href = "JuegoPreguntas/game1.html";
+// Evento cuando el DOM está completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+    cargarJugadores();  // Cargar los jugadores desde JSON
+
+    // Configurar el botón para guardar los jugadores seleccionados
+    document.getElementById('confirmar').addEventListener('click', guardarSeleccion);
 });
 

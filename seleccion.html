@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             background: linear-gradient(120deg, #f6d365, #fda085);
             font-family: Arial, sans-serif;
         }
+
         .container {
             margin-top: 50px;
             padding: 20px;
@@ -17,13 +19,16 @@
             border-radius: 10px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
+
         h1 {
             color: #333;
             text-align: center;
         }
+
         .btn {
             width: 100%;
         }
+
         .output {
             margin-top: 20px;
             padding: 15px;
@@ -32,30 +37,41 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Seleccionar Jugadores</h1>
-        <form id="player-selection-form">
-            <div class="mb-4">
-                <label for="player1" class="form-label">Jugador 1</label>
-                <select id="player1" class="form-select">
-                    <!-- Opciones dinámicas -->
-                </select>
-            </div>
-            <div class="mb-4">
-                <label for="player2" class="form-label">Jugador 2</label>
-                <select id="player2" class="form-select">
-                    <!-- Opciones dinámicas -->
-                </select>
-            </div>
-            <button type="button" class="btn btn-primary" id="confirm-button">Confirmar Jugadores</button>
-        </form>
-        <div id="output" class="output d-none">
-            <p id="output-message"></p>
+        <div class="container my-5 p-4 shadow-lg rounded bg-white">
+            <h1 class="text-center mb-4">Seleccionar Jugadores</h1>
+            
+            <form id="player-selection-form">
+                <!-- Jugador 1 -->
+                <div class="mb-4">
+                    <label for="jugador1" class="form-label">Jugador 1:</label>
+                    <select id="jugador1" class="form-select">
+                        <option value="" disabled selected>Seleccione un jugador</option>
+                    </select>
+                </div>
+    
+                <!-- Jugador 2 -->
+                <div class="mb-4">
+                    <label for="jugador2" class="form-label">Jugador 2:</label>
+                    <select id="jugador2" class="form-select">
+                        <option value="" disabled selected>Seleccione un jugador</option>
+                    </select>
+                </div>
+    
+                <!-- Botón Confirmar -->
+                <div class="d-flex justify-content-center">
+                    <button id="confirmar" class="btn btn-primary btn-lg">Confirmar</button>
+                </div>
+            </form>
         </div>
+
     </div>
 
-    <script src="Usuario.js"></script>
+    <script src="main.js"></script>
     <script src="seleccionJS.js"></script>
+    <script> document.getElementById('confirmar').addEventListener('click', function() { window.location.href = 'juegoPreguntas/game1.html'; }); </script>
 </body>
+
 </html>

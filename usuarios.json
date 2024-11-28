@@ -33,5 +33,68 @@
     "email": "hola@gmail.com",
     "contraseña": "123",
     "puntacion": 0
+  },
+  {
+    "id": 6,
+    "nombre": "Camila",
+    "email": "camila@gmail.com",
+    "contraseña": "qwerty",
+    "puntacion": 0
+  },
+  {
+    "id": 7,
+    "nombre": "Ema Rojas",
+    "email": "ema@gmail.com",
+    "contraseña": "6789",
+    "puntacion": 0
+  },
+  {
+    "id": 8,
+    "nombre": "Fernando",
+    "email": "fernando@gmal.com",
+    "contraseña": "hgyu",
+    "puntacion": 0
+  },
+  {
+    "id": 9,
+    "nombre": "sebas",
+    "email": "222@dwedew",
+    "contraseña": "1212",
+    "puntacion": 0
+  },
+  {
+    "id": 10,
+    "nombre": "Ema Rojas",
+    "email": "222@fff",
+    "contraseña": "afasfssa",
+    "puntacion": 0
+  },
+  {
+    "id": 11,
+    "nombre": "Hola",
+    "email": "hola@gmail.com",
+    "contraseña": "78787",
+    "puntacion": 0
+  },
+  {
+    "id": 12,
+    "nombre": "chau",
+    "email": "chau@gmail.com",
+    "contraseña": "243242423",
+    "puntacion": 0
+  },
+  {
+    "id": 13,
+    "nombre": "julio",
+    "email": "julio@gamil.com",
+    "contraseña": "dsgfdfgfdg",
+    "puntacion": 0
+  },
+  {
+    "id": 14,
+    "nombre": "sebas1212",
+    "email": "1313@hiuhas",
+    "contraseña": "1233",
+    "puntacion": 0
   }
 ]

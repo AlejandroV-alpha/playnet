@@ -12,8 +12,8 @@ $(document).ready(function () {
         { question: "¿Quién escribió *Don Quijote*?", answers: ["García Márquez", "Cervantes", "Shakespeare", "Lorca"], correct: 1 }
     ];
 
-    const player1 = JSON.parse(localStorage.getItem("player1"));
-    const player2 = JSON.parse(localStorage.getItem("player2"));
+    const player1 = JSON.parse(localStorage.getItem("jugador1"));
+    const player2 = JSON.parse(localStorage.getItem("jugador2"));
 
     if (!player1 || !player2) {
         alert("No se encontraron jugadores seleccionados. Por favor, vuelve a la página de selección.");
