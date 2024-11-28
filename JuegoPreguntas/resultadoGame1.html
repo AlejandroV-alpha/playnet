@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado del Juego</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        #results-container {
+            background-color: #f4f4f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #winner {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="results-container">
+        <h2 id="winner"></h2>
+        <button id="back-to-game" class="btn">Regresar al Juego</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Obtener el nombre del ganador desde localStorage
+            var winner = localStorage.getItem("ganador");
+
+            if (winner === "Empate") {
+                $("#winner").text("¡Es un empate! Nadie ganó esta vez.");
+            } else {
+                $("#winner").text("¡Felicidades " + winner + "! 🎉 Ganaste esta partida.");
+            }
+
+            // Botón para regresar al juego
+            $("#back-to-game").on("click", function() {
+                window.location.href = "../juegos.html"; // Regresar al juego
+            });
+
+            // Opcional: Limpiar el ganador de localStorage para evitar que persista en futuras visitas
+            // localStorage.removeItem("ganador");
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

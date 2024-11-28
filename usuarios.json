@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "email": "juan@example.com",
+    "contraseña": "contraseña123",
+    "puntacion": 0
+  },
+  {
+    "id": 2,
+    "nombre": "Ana Gómez",
+    "email": "ana@example.com",
+    "contraseña": "password456",
+    "puntacion": 0
+  },
+  {
+    "id": 3,
+    "nombre": "ale",
+    "email": "alejandro.vidal.tarija@gmail.com",
+    "contraseña": "123",
+    "puntacion": 0
+  },
+  {
+    "id": 4,
+    "nombre": "sebas",
+    "email": "flores@gamil.com",
+    "contraseña": "321",
+    "puntacion": 0
+  },
+  {
+    "id": 5,
+    "nombre": "sebas",
+    "email": "hola@gmail.com",
+    "contraseña": "123",
+    "puntacion": 0
+  }
+]

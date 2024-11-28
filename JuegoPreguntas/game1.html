@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Preguntas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            font-family: 'Arial', sans-serif;
+        }
+        .game-container {
+            margin-top: 50px;
+            border-radius: 15px;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .question-box {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .answer-btn {
+            margin: 5px 0;
+            width: 100%;
+            text-align: left;
+            background: #e1ecf4;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .answer-btn:hover {
+            background: #c2d4e4;
+            transform: scale(1.03);
+        }
+        .turn-indicator {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        #results {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container game-container">
+        <h1 class="text-center text-primary">Juego de Preguntas</h1>
+        <div id="game-container">
+            <div id="question-area" class="text-center">
+                <h3 id="question-text" class="text-dark"></h3>
+                <div id="answers" class="mt-3"></div>
+            </div>
+            <div class="turn-indicator text-center text-info" id="turn-indicator"></div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <h4 class="text-success">Jugador 1: <span id="score1">0</span></h4>
+                </div>
+                <div class="col text-center">
+                    <h4 class="text-success">Jugador 2: <span id="score2">0</span></h4>
+                </div>
+            </div>
+        </div>
+        <div id="results" class="hidden text-center">
+            <h2 id="winner" class="text-primary"></h2>
+            <button id="finalize" class="btn btn-primary">Finalizar</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="jsGame1.js"></script>
+</body>
+</html>
+
