@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera - PlayNet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="game3CSS.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Piedra, Papel o Tijera</h1>
+
+        <!-- Instrucciones -->
+        <div id="instructions" class="mb-4">
+            <h3 id="currentPlayer">Turno de: Jugador 1</h3>
+            <p>Selecciona tu elección. El otro jugador no verá tu respuesta.</p>
+        </div>
+
+        <!-- Elecciones -->
+        <div class="choices">
+            <button class="choice-btn" data-choice="piedra">🪨</button>
+            <button class="choice-btn" data-choice="papel">📄</button>
+            <button class="choice-btn" data-choice="tijera">✂️</button>
+        </div>
+
+        <!-- Resultado -->
+        <div id="result" class="result">Esperando elecciones...</div>
+
+        <!-- Botón de reinicio -->
+        <!-- Botón Volver al inicio -->
+        <button class="reset-btn" id="restart" style="display: none;">Volver al inicio</button>
+
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="game3JS.js"></script>
+</body>
+
+</html>
