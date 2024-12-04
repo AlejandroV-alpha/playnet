@@ -96,5 +96,3 @@ $(document).ready(function () {
         window.location.href = '../index.html'; // Ruta del archivo principal
     });
 });
-
-.

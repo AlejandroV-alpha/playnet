@@ -148,5 +148,3 @@ $(document).ready(function () {
         window.location.href = "../index.html"; // Redirige a la página principal
     });
 });
-
-.
