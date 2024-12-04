@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <meta charset="UTF-8">
-    <title>Batalla Naval | PlayNet
+    <title>Piensa un numero | PlayNet
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:site_name" content="Codepip">
@@ -104,32 +104,25 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="caption">
-                                    <h2 class="card-title">Batalla Naval</h2>
+                                    <h2 class="card-title">Piensa un numero</h2>
                                     <div class="card-text">
                                         <div class="tags">
-                                            <div class="topics tag-group"><span class="tag">ESTRATEGIA</span><span
+                                            <div class="topics tag-group"><span class="tag">PIENSA</span><span
                                                     class="tag">ELIJE</span></div><span class="tag">Free</span>
                                         </div>
                                         <div class="description">
                                             <p>
-                                                Este juego es una versión simplificada de Battleship (Hundidos), donde
-                                                los jugadores intentan adivinar la ubicación de las naves del oponente
-                                                en un tablero de 5x5 casillas. Al inicio del juego, cada jugador tiene
-                                                dos naves colocadas de manera aleatoria en su tablero, las cuales son
-                                                invisibles para el adversario. Los jugadores se turnan para hacer
-                                                disparos, seleccionando una casilla en el tablero del oponente. Si la
-                                                casilla seleccionada contiene una nave, se marca como "golpeada" (hit) y
-                                                se suma un punto al jugador que acertó. Si la casilla no contiene una
-                                                nave, se marca como "agua" (miss).
+                                                ¡Descubre la magia de las adivinanzas con Piensa un Número! Este
+                                                fascinante juego te invita a pensar en un número mientras la máquina
+                                                intenta adivinarlo utilizando lógica y preguntas estratégicas. Todo lo
+                                                que necesitas hacer es elegir un número dentro de un rango específico y
+                                                responder algunas preguntas.
                                             </p>
                                             <p>
-                                                El objetivo es hundir todas las naves del oponente antes de que él lo
-                                                haga con las tuyas. Los barcos están ubicados de forma aleatoria en el
-                                                tablero, lo que agrega un elemento de incertidumbre y estrategia, ya que
-                                                los jugadores deben recordar y deducir la ubicación de las naves
-                                                enemigas basándose en sus disparos previos. El juego sigue hasta que un
-                                                jugador haya logrado hundir ambas naves del oponente, momento en el que
-                                                se declara al ganador.
+                                                La diversión radica en la rapidez y precisión con la que la máquina
+                                                llegará a tu número. Utilizando un método basado en deducción y
+                                                cálculos, cada pregunta la acerca más a la respuesta correcta. ¿Podrá
+                                                adivinarlo en pocos intentos o conseguirás desafiar su lógica?
                                             </p>
                                         </div>
                                     </div>
@@ -137,8 +130,7 @@
                             </div>
                             <div class="card-footer">
 
-                                <a href="../seleccion.html" class="btn btn-primary float-right"
-                                    onclick="gtag('event', 'register', {'event_category': 'game', 'event_label': 'Anchoreum'});">Iniciar</a>
+                                <button type="button" class="btn btn-primary" id="juego">Iniciar</button>
 
 
                             </div>
@@ -200,6 +192,17 @@
     </div>
 
     <script src="../js/navegador.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#juego').click(function () { 
+                let juegoURL = 'Juego5/game5.html'; 
+                localStorage.setItem('juegoSelecion', juegoURL);
+                console.log("URL guardada en localStorage:", juegoURL); // Depuración
+                window.location.href = '../seleccion.html';
+            });
+        });
+    </script>
 
     <script type="text/javascript"
         src="https://codepip.com/wp-content/plugins/codepip/vendor/bootstrap/js/bootstrap.bundle.min.js?ver=4.6.2"
