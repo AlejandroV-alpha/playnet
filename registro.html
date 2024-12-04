@@ -28,18 +28,8 @@
         href='https://codepip.com/wp-content/plugins/codepip/styles/site.css' type='text/css' media='all' />
     <script type="text/javascript" src="https://codepip.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
         id="jquery-core-js"></script>
-    <script type="text/javascript" src="https://js.stripe.com/v3/?ver=3" id="stripe-js-v3-js"></script>
-    <script type="text/javascript" id="rcp-stripe-js-extra">
-        /* <![CDATA[ */
-        var rcpStripe = { "keys": { "publishable": "pk_live_51EDDxWH5IlYw2qawG5ruknsgr24I844vDM9BPuNaUnc6xjGfx68PapPQbshxTejjKEagAusrbogDqtzQQoTVh9Xt00z3SNwmpl" }, "errors": { "api_key_expired": "Payment gateway connection error.", "card_declined": "The card has been declined.", "email_invalid": "Invalid email address. Please enter a valid email address and try again.", "expired_card": "This card has expired. Please try again with a different payment method.", "incorrect_address": "The supplied billing address is incorrect. Please check the card's address or try again with a different card.", "incorrect_cvc": "The card's security code is incorrect. Please check the security code or try again with a different card.", "incorrect_number": "The card number is incorrect. Please check the card number or try again with a different card.", "invalid_number": "The card number is incorrect. Please check the card number or try again with a different card.", "incorrect_zip": "The card's postal code is incorrect. Please check the postal code or try again with a different card.", "postal_code_invalid": "The card's postal code is incorrect. Please check the postal code or try again with a different card.", "invalid_cvc": "The card's security code is invalid. Please check the security code or try again with a different card.", "invalid_expiry_month": "The card's expiration month is incorrect.", "invalid_expiry_year": "The card's expiration year is incorrect.", "payment_intent_authentication_failure": "Authentication failure.", "payment_intent_incompatible_payment_method": "This payment method is invalid.", "payment_intent_payment_attempt_failed": "Payment attempt failed.", "setup_intent_authentication_failure": "Setup attempt failed." }, "formatting": { "currencyMultiplier": 100 }, "elementsConfig": null };
-        /* ]]> */
-    </script>
-    <script type="text/javascript"
-        src="https://codepip.com/wp-content/plugins/restrict-content-pro/core/includes/gateways/stripe/js/stripe.min.js?ver=3.5.43"
-        id="rcp-stripe-js"></script>
-    <script type="text/javascript"
-        src="https://codepip.com/wp-content/plugins/restrict-content-pro/core/includes/gateways/stripe/js/register.js?ver=3.5.43"
-        id="rcp-stripe-register-js"></script>
+    
+    
     <link rel="https://api.w.org/" href="https://codepip.com/wp-json/" />
     <link rel="alternate" title="JSON" type="application/json" href="https://codepip.com/wp-json/wp/v2/pages/38" />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://codepip.com/xmlrpc.php?rsd" />
@@ -113,7 +103,7 @@
                                 <div class="card-body">
 
                                     <h1>Formulario de Registro</h1>
-                                    <form action="http://localhost:3000/registro" method="POST">  <!-- Aquí cambia la acción -->
+                                    <form>  <!-- Aquí cambia la acción -->
                                         <div class="mb-3">
                                             <label for="nombre" class="form-label">Nombre:</label>
                                             <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -124,11 +114,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="contraseña" class="form-label">Contraseña:</label>
-                                            <input type="password" id="contraseña" name="contraseña" class="form-control" required>
+                                            <input type="password" id="contrasenia" name="contraseña" class="form-control" required>
                                         </div>
                                         <div class="d-grid">
                                             <!-- Botón -->
-                                            <button type="submit" class="btn btn-success btn-lg shadow-sm">Registrar</button>
+                                            <button id="btnRegistrar" type="button" class="btn btn-success col-12">Enviar</button>
                                         </div>
                                     </form>
 
@@ -183,11 +173,8 @@
 
 
     <script src="js/navegador.js"></script>
-
-
-
-
-
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
 
     <script type="text/javascript"
         src="https://codepip.com/wp-content/plugins/codepip/vendor/bootstrap/js/bootstrap.bundle.min.js?ver=4.6.2"

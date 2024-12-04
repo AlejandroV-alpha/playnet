@@ -1,77 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleccionar Jugadores</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>PlayNet - Selección de Jugadores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(120deg, #f6d365, #fda085);
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00b4d8, #00d2d2);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
-        .container {
-            margin-top: 50px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        .card {
+            border-radius: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            padding: 30px;
+            width: 100%;
+            transition: transform 0.3s ease;
         }
 
-        h1 {
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-title {
+            font-size: 2.5rem;
+            font-weight: 600;
             color: #333;
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        .btn {
+        select {
+            border-radius: 10px;
+            border: 2px solid #00b4d8;
+            padding: 10px;
             width: 100%;
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
         }
 
-        .output {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e3f2fd;
-            border-radius: 5px;
+        select:focus {
+            border-color: #0077b6;
+            outline: none;
+        }
+
+        .btn-custom {
+            background-color: #00b4d8;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 15px 30px;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #0077b6;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="container my-5 p-4 shadow-lg rounded bg-white">
-            <h1 class="text-center mb-4">Seleccionar Jugadores</h1>
-            
-            <form id="player-selection-form">
-                <!-- Jugador 1 -->
-                <div class="mb-4">
-                    <label for="jugador1" class="form-label">Jugador 1:</label>
-                    <select id="jugador1" class="form-select">
-                        <option value="" disabled selected>Seleccione un jugador</option>
-                    </select>
-                </div>
-    
-                <!-- Jugador 2 -->
-                <div class="mb-4">
-                    <label for="jugador2" class="form-label">Jugador 2:</label>
-                    <select id="jugador2" class="form-select">
-                        <option value="" disabled selected>Seleccione un jugador</option>
-                    </select>
-                </div>
-    
-                <!-- Botón Confirmar -->
-                <div class="d-flex justify-content-center">
-                    <button id="confirmar" class="btn btn-primary btn-lg">Confirmar</button>
-                </div>
-            </form>
-        </div>
+    <div class="card">
+        <h1 class="card-title">Selecciona los Jugadores</h1>
 
+        <!-- Formulario de selección -->
+        <form>
+            <!-- Selección Jugador 1 -->
+            <div class="mb-4">
+                <label for="jugador1" class="form-label">Jugador 1</label>
+                <select class="form-select" id="jugador1" required>
+                    <!-- Opciones serán cargadas dinámicamente -->
+                </select>
+            </div>
+
+            <!-- Selección Jugador 2 -->
+            <div class="mb-4">
+                <label for="jugador2" class="form-label">Jugador 2</label>
+                <select class="form-select" id="jugador2" required>
+                    <!-- Opciones serán cargadas dinámicamente -->
+                </select>
+            </div>
+
+            <!-- Botón para confirmar -->
+            <button type="button" class="btn btn-custom" onclick="confirmarSeleccion()">Confirmar Jugadores</button>
+        </form>
     </div>
 
-    <script src="main.js"></script>
-    <script src="seleccionJS.js"></script>
-    <script> document.getElementById('confirmar').addEventListener('click', function() { window.location.href = 'juegoPreguntas/game1.html'; }); </script>
+    <div class="footer">
+        <p>&copy; 2024 PlayNet. Todos los derechos reservados.</p>
+    </div>
+
+    <!-- Inclusión de jQuery y main.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Recuperar la lista de usuarios desde LocalStorage
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Verificar si hay usuarios registrados
+            if (usuarios.length > 0) {
+                // Cargar los usuarios en ambos combobox
+                usuarios.forEach(function (usuario) {
+                    $('#jugador1, #jugador2').append('<option value="' + usuario.id + '">' + usuario.nombre + '</option>');
+                });
+            } else {
+                alert('No hay usuarios registrados.');
+            }
+        });
+
+        function confirmarSeleccion() {
+            var jugador1 = $('#jugador1').val();
+            var jugador2 = $('#jugador2').val();
+
+            if (jugador1 === jugador2) {
+                alert("¡Los jugadores no pueden ser los mismos!");
+            } else {
+                // Guardar los IDs de los jugadores seleccionados en localStorage
+                localStorage.setItem('jugador1Id', jugador1);
+                localStorage.setItem('jugador2Id', jugador2);
+
+                // Recuperar la URL directamente (sin necesidad de JSON.parse)
+                let juego = localStorage.getItem('juegoSelecion') || '';
+
+                // Verificar si la URL es válida
+                if (juego === '') {
+                    alert('No se ha definido una URL para el juego.');
+                } else {
+                    // Si la URL existe, se redirige al juego
+                    window.location.href = juego;
+                }
+            }
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -81,8 +81,7 @@
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo.png" alt="PlayNet Logo"
-                    width="752" height="153">
+                <img src="img/logo.png" alt="PlayNet Logo" width="752" height="153">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
                 aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,32 +118,15 @@
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th>Nombre</th>
+                                                    <th>Email</th>
                                                     <th>Puntuación</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                <!-- Aquí se agregarán las filas con los datos de los usuarios -->
                                             </tbody>
                                         </table>
+
                                     </div>
 
                                 </div>
@@ -163,8 +145,7 @@
             <div class="row mb-5">
                 <div class="col-12">
                     <a class="navbar-brand" href="#">
-                        <img src="img/logo.png" alt="PlayNet Logo"
-                            width="752" height="153">
+                        <img src="img/logo.png" alt="PlayNet Logo" width="752" height="153">
                     </a>
                 </div>
             </div>
@@ -186,8 +167,8 @@
                     <div class="footer-link"><a href="Soporte/politicaPrivacidad.html">Politica de Privacidad</a></div>
                     <div class="footer-link"><a href="Soporte/terminosCondiciones.html">Terminos y condiciones</a></div>
                 </div>
-                
-                
+
+
             </div>
             <div class="row">
                 <div class="col-sm-8">
@@ -199,8 +180,40 @@
 
 
     <script src="js/navegador.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Obtener los usuarios almacenados en localStorage
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Verifica si hay usuarios para mostrar
+            if (usuarios.length > 0) {
+                // Inicializamos una variable para las filas de la tabla
+                let rows = '';
+
+                // Iterar sobre los usuarios y agregar cada uno a las filas
+                usuarios.forEach(usuario => {
+                    rows += `
+                <tr>
+                    <td>${usuario.nombre}</td>
+                    <td>${usuario.email}</td>
+                    <td>${usuario.puntuacion}</td>
+                </tr>
+            `;
+                });
+
+                // Establecer las filas en el cuerpo de la tabla
+                $('table tbody').html(rows);
+            } else {
+                // Si no hay usuarios, agregar un mensaje en la tabla
+                $('table tbody').html('<tr><td colspan="3" class="text-center">No hay usuarios registrados.</td></tr>');
+            }
+        });
 
 
+
+    </script>
 
 
 
@@ -210,4 +223,3 @@
 </body>
 
 </html>
-
