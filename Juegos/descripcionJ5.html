@@ -130,8 +130,7 @@
                             </div>
                             <div class="card-footer">
 
-                                <a href="../seleccion.html" class="btn btn-primary float-right"
-                                    onclick="gtag('event', 'register', {'event_category': 'game', 'event_label': 'Anchoreum'});">Iniciar</a>
+                                <button type="button" class="btn btn-primary" id="juego">Iniciar</button>
 
 
                             </div>
@@ -193,6 +192,17 @@
     </div>
 
     <script src="../js/navegador.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#juego').click(function () { 
+                let juegoURL = 'Juego5/game5.html'; 
+                localStorage.setItem('juegoSelecion', juegoURL);
+                console.log("URL guardada en localStorage:", juegoURL); // Depuración
+                window.location.href = '../seleccion.html';
+            });
+        });
+    </script>
 
     <script type="text/javascript"
         src="https://codepip.com/wp-content/plugins/codepip/vendor/bootstrap/js/bootstrap.bundle.min.js?ver=4.6.2"
