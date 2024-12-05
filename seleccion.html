@@ -7,77 +7,7 @@
     <title>PlayNet - Selección de Jugadores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #00b4d8, #00d2d2);
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
-
-        .card {
-            border-radius: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            padding: 30px;
-            width: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        select {
-            border-radius: 10px;
-            border: 2px solid #00b4d8;
-            padding: 10px;
-            width: 100%;
-            font-size: 1.1rem;
-            transition: border-color 0.3s;
-        }
-
-        select:focus {
-            border-color: #0077b6;
-            outline: none;
-        }
-
-        .btn-custom {
-            background-color: #00b4d8;
-            color: white;
-            font-weight: 600;
-            border-radius: 50px;
-            padding: 15px 30px;
-            width: 100%;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn-custom:hover {
-            background-color: #0077b6;
-            transform: scale(1.05);
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="css/seleccionCSS.css">
 </head>
 
 <body>
@@ -115,47 +45,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            // Recuperar la lista de usuarios desde LocalStorage
-            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-            // Verificar si hay usuarios registrados
-            if (usuarios.length > 0) {
-                // Cargar los usuarios en ambos combobox
-                usuarios.forEach(function (usuario) {
-                    $('#jugador1, #jugador2').append('<option value="' + usuario.id + '">' + usuario.nombre + '</option>');
-                });
-            } else {
-                alert('No hay usuarios registrados.');
-            }
-        });
-
-        function confirmarSeleccion() {
-            var jugador1 = $('#jugador1').val();
-            var jugador2 = $('#jugador2').val();
-
-            if (jugador1 === jugador2) {
-                alert("¡Los jugadores no pueden ser los mismos!");
-            } else {
-                // Guardar los IDs de los jugadores seleccionados en localStorage
-                localStorage.setItem('jugador1Id', jugador1);
-                localStorage.setItem('jugador2Id', jugador2);
-
-                // Recuperar la URL directamente (sin necesidad de JSON.parse)
-                let juego = localStorage.getItem('juegoSelecion') || '';
-
-                // Verificar si la URL es válida
-                if (juego === '') {
-                    alert('No se ha definido una URL para el juego.');
-                } else {
-                    // Si la URL existe, se redirige al juego
-                    window.location.href = juego;
-                }
-            }
-        }
-
-    </script>
+    <script src="js/seleccionJS.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
