@@ -75,6 +75,18 @@
     <meta property="og:description" content="Sign up for a Codepip account here.">
     <meta property="og:site_name" content="Codepip">
     <meta property="fb:app_id" content="916849395036923">
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        th,
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body class="page-template-default page page-id-38 page-parent wp-embed-responsive">
@@ -104,25 +116,41 @@
         </div>
     </nav>
 
-    <section class="py-5">
+    <section>
         <div class="container">
-            <h1 class="text-center mb-4">Ranking Global de Puntuación</h1>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Puntuación</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Aquí se agregarán las filas con los datos de los usuarios -->
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 offset-lg-0">
+                    <div class="card register">
+                        <div class="row">
+                            <div class="col-sm-12 offset-sm-0 col-lg-12 offset-lg-0 left">
+                                <div class="card-body">
+                                    <div class="container mt-5">
+                                        <h1 class="text-center mb-4">Ranking Global de Puntuación</h1>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <th>Email</th>
+                                                        <th>Puntuación</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Aquí se agregarán las filas con los datos de los usuarios -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    
+
 
     <div class="footer d-print-none">
         <div class="container">
@@ -169,15 +197,15 @@
         $(document).ready(function () {
             // Obtener los usuarios almacenados en localStorage
             let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    
+
             // Verifica si hay usuarios para mostrar
             if (usuarios.length > 0) {
                 // Crear una copia del arreglo para ordenarlo sin afectar el original
                 let usuariosOrdenados = [...usuarios].sort((a, b) => b.puntuacion - a.puntuacion);
-    
+
                 // Inicializamos una variable para las filas de la tabla
                 let rows = '';
-    
+
                 // Iterar sobre los usuarios ordenados y agregar cada uno a las filas
                 usuariosOrdenados.forEach(usuario => {
                     rows += `
@@ -188,7 +216,7 @@
                         </tr>
                     `;
                 });
-    
+
                 // Establecer las filas en el cuerpo de la tabla
                 $('table tbody').html(rows);
             } else {
@@ -197,7 +225,7 @@
             }
         });
     </script>
-    
+
 
 
     <script type="text/javascript"
