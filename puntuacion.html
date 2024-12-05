@@ -12,7 +12,7 @@
     <link rel="alternate" type="application/rss+xml" title="Codepip &raquo; Feed" href="https://codepip.com/feed/" />
 
     <link rel="shortcut icon" href="img/icono.png" type="image/x-icon">
-    
+
     <link rel="stylesheet" href="css/estiloForm.css">
 
     <link rel='stylesheet' id='bootstrap_css-css'
@@ -186,23 +186,26 @@
         $(document).ready(function () {
             // Obtener los usuarios almacenados en localStorage
             let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
+    
             // Verifica si hay usuarios para mostrar
             if (usuarios.length > 0) {
+                // Crear una copia del arreglo para ordenarlo sin afectar el original
+                let usuariosOrdenados = [...usuarios].sort((a, b) => b.puntuacion - a.puntuacion);
+    
                 // Inicializamos una variable para las filas de la tabla
                 let rows = '';
-
-                // Iterar sobre los usuarios y agregar cada uno a las filas
-                usuarios.forEach(usuario => {
+    
+                // Iterar sobre los usuarios ordenados y agregar cada uno a las filas
+                usuariosOrdenados.forEach(usuario => {
                     rows += `
-                <tr>
-                    <td>${usuario.nombre}</td>
-                    <td>${usuario.email}</td>
-                    <td>${usuario.puntuacion}</td>
-                </tr>
-            `;
+                        <tr>
+                            <td>${usuario.nombre}</td>
+                            <td>${usuario.email}</td>
+                            <td>${usuario.puntuacion}</td>
+                        </tr>
+                    `;
                 });
-
+    
                 // Establecer las filas en el cuerpo de la tabla
                 $('table tbody').html(rows);
             } else {
@@ -210,11 +213,8 @@
                 $('table tbody').html('<tr><td colspan="3" class="text-center">No hay usuarios registrados.</td></tr>');
             }
         });
-
-
-
     </script>
-
+    
 
 
     <script type="text/javascript"
